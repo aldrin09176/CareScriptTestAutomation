@@ -1,0 +1,26 @@
+{
+  "AtClass": "AT - Class Sponsor-EDU",
+  "Dir": "Directions",
+  "Clas": "Class",
+  "At1": "at1",
+  "Aldrin": "Sy,Aldrin",
+  "CallerFirst": "test",
+  "Last": "test",
+  "CallerLast": "Caller",
+  "PatientStatus": "GM - All Other",
+  "Provider": "De",
+  "MessageType": "Contact Provider",
+  "Message": "This is a test message from automation.",
+  "CallbackNo": "8339681741",
+  "HeardSource": "Bro", // Brochure
+  "Specialty": "Cardio", // Cardiology
+  "Language": "English",
+  "ReferralReason": "Transfer", // Transferred to Office
+  "AgentNote": "Helped find a doctor",
+  "CallbackNoTriage": "5555555555",
+  "PresentingProblem": "bleeding toe",
+  "BServiceType": "Urgent Care Ctr",
+  "Source": "Bus Board",
+  "ServiceReferralReason": "Location",
+  "ServiceReferalAgentNote": "Agent Note"
+}
