@@ -36,8 +36,6 @@ namespace CareScriptTestAutomation.Tests
 
             Commons commons = new Commons(driver, this.test);
 
-            var beforeRecordedTime = commons.getCurrentEasternTime();
-
             loginPageSteps.loginUsingSeatNo();
             statusPanelPageSteps.selectAdminWork();
             statusPanelPageSteps.selectFacility();
@@ -54,11 +52,8 @@ namespace CareScriptTestAutomation.Tests
             transactionWindowPageSteps.clickEndReferralBtn();
             transactionWindowPageSteps.clickSendBtn();
             transactionWindowPageSteps.clickF12EndCall();
-          
             functionMenuPageSteps.selectTransResearch();
-
             childWindowPageSteps.validateAddedRecords("Physician Referral");
-
             statusPanelPageSteps.logOut(); 
         }
     }

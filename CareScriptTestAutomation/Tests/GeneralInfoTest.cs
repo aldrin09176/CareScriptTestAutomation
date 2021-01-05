@@ -42,8 +42,6 @@ namespace CareScriptTestAutomation.Test
 
             Commons commons = new Commons(driver, this.test);
 
-            var beforeRecordedTime = commons.getCurrentEasternTime();
-
             loginPageSteps.loginUsingSeatNo();
             statusPanelPageSteps.selectAdminWork();
             statusPanelPageSteps.selectFacility();
@@ -53,11 +51,8 @@ namespace CareScriptTestAutomation.Test
             transactionWindowPageSteps.selectClassification();
             transactionWindowPageSteps.clickeEndCall();
             transactionWindowPageSteps.clickF12EndCall();
-
             functionMenuPageSteps.selectTransResearch();
-
             childWindowPageSteps.validateAddedRecords("General Info");
-
             statusPanelPageSteps.logOut();
 
         }

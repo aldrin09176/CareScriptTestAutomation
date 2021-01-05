@@ -37,23 +37,18 @@ namespace CareScriptTestAutomation.Tests
 
             Commons commons = new Commons(driver, this.test);
 
-            var beforeRecordedTime = commons.getCurrentEasternTime();
-
             loginPageSteps.loginUsingSeatNo();
             statusPanelPageSteps.selectAdminWork();
             statusPanelPageSteps.selectFacility();
             telephonyWindowPageSteps.telephonyClickRejectAll();
             transactionWindowPageSteps.clickCancel();
             commons.clickYes();
-
             statusPanelPageSteps.selectTypeTriage();
-
             transactionWindowPageSteps.inputInitialTriageFormDetails();
             commons.clickOK();
             transactionWindowPageSteps.inputFinishinDetailsTriage();
             telephonyWindowPageSteps.telephonyClickRejectAll();
             transactionWindowPageSteps.clickF12EndCall();
-
             statusPanelPageSteps.logOut();
         }
         [Fact]
@@ -70,8 +65,6 @@ namespace CareScriptTestAutomation.Tests
             TransactionWindowPageSteps transactionWindowPageSteps = new TransactionWindowPageSteps(driver, test);
             FunctionMenuPageSteps functionMenuPageSteps = new FunctionMenuPageSteps(driver, test);
             ChildWindowsPageSteps childWindowPageSteps = new ChildWindowsPageSteps(driver, test);
-
-            Commons commons = new Commons(driver, this.test);
 
             loginPageSteps.loginUsingSeatNo();
             statusPanelPageSteps.selectAdminWork();

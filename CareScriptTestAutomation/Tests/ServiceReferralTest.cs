@@ -33,10 +33,7 @@ namespace CareScriptTestAutomation.Tests
             TransactionWindowPageSteps transactionWindowPageSteps = new TransactionWindowPageSteps(driver, test);
             FunctionMenuPageSteps functionMenuPageSteps = new FunctionMenuPageSteps(driver, test);
             ChildWindowsPageSteps childWindowPageSteps = new ChildWindowsPageSteps(driver, test);
-
             Commons commons = new Commons(driver, this.test);
-
-            var beforeRecordedTime = commons.getCurrentEasternTime();
 
             loginPageSteps.loginUsingSeatNo();
             statusPanelPageSteps.selectAdminWork();
@@ -48,11 +45,8 @@ namespace CareScriptTestAutomation.Tests
             statusPanelPageSteps.selectTypeServiceReferral();
             transactionWindowPageSteps.fillServiceReferralForm();
             transactionWindowPageSteps.clickF12EndCall();
-
             functionMenuPageSteps.selectTransResearch();
-
             childWindowPageSteps.verifyAddedRecordsInServiceReferral();
-
             statusPanelPageSteps.logOut();
         }
     }

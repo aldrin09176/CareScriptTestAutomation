@@ -36,8 +36,6 @@ namespace CareScriptTestAutomation.Tests
 
             Commons commons = new Commons(driver, this.test);
 
-            var beforeRecordedTime = commons.getCurrentEasternTime();
-
             loginPageSteps.loginUsingSeatNo();
             statusPanelPageSteps.selectAdminWork();
             statusPanelPageSteps.selectFacility();
@@ -47,7 +45,6 @@ namespace CareScriptTestAutomation.Tests
             statusPanelPageSteps.selectMessage();
             statusPanelPageSteps.selectGeneralMessage();
             telephonyWindowPageSteps.telephonyClickRejectAll();
-
             transactionWindowPageSteps.populateFields();
             transactionWindowPageSteps.clickFirstRecord();
             transactionWindowPageSteps.clickReturn();
@@ -58,9 +55,7 @@ namespace CareScriptTestAutomation.Tests
             transactionWindowPageSteps.clickSendBtn();
             transactionWindowPageSteps.clickF12EndCall();
             functionMenuPageSteps.selectTransResearch();
-
             childWindowPageSteps.validateAddedRecords("General Message");
-
             statusPanelPageSteps.logOut();
         }
     }
