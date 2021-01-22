@@ -22,5 +22,22 @@
   "BServiceType": "Urgent Care Ctr",
   "Source": "Bus Board",
   "ServiceReferralReason": "Location",
-  "ServiceReferalAgentNote": "Agent Note"
+  "ServiceReferalAgentNote": "Agent Note",
+  "Bleeding": "bleeding",
+  "Assessment1": "test automation [1]",
+  "Assessment2": "test automation [2]",
+
+  "Mother": "Test Mom2",
+  "Newborn": "Little Baby",
+  "ProviderNewBaby": "At-Test,O'Maria",
+  "CallbackNoNewBaby": "5555555555",
+  "Hospital": "BT Hospital B-HSP",
+  "Condition": "Baby was good",
+  "RmWard": "Room 45",
+  "Date": "11/25/2020",
+  "Time": "10:00",
+  "Weight": "8",
+  "Comment": "Baby was born and looks good",
+  "ProviderNewBaby2": "Administrator for Paging, Donna Type- ADM",
+  "OverrideReason": "Auth Needed; dispo see in <= 24 and no office hours"
 }

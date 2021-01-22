@@ -1,5 +1,6 @@
 ﻿using AventStack.ExtentReports;
 using CareScriptTestAutomation.Resources.PageObjects;
+using CareScriptTestAutomation.Src.ChildWindows;
 using CareScriptTestAutomation.Src.StatusPanel.DataObjects;
 using CareScriptTestAutomation.Src.TransactionWindow.DataObjects;
 using OpenQA.Selenium;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Xunit;
 
 namespace CareScriptTestAutomation.Src.StatusPanel
 {
@@ -24,6 +26,8 @@ namespace CareScriptTestAutomation.Src.StatusPanel
 
         TelephonyWindowPage telephonyWindowPage { get; set; }
         ExtentTest test { get; set; }
+        ChildWindowsPageSteps childWindowsPageSteps { get; set; }
+        ChildWindowsPage childWindowsPage { get; set; }
 
 
         public TransactionWindowPageSteps(WindowsDriver<WindowsElement> driver, ExtentTest test)
@@ -32,6 +36,8 @@ namespace CareScriptTestAutomation.Src.StatusPanel
             this.transactionWindowPage = new TransactionWindowPage(this.driver);
             this.commons = new Commons(this.driver, test);
             this.commonPage = new CommonPage(this.driver);
+            this.childWindowsPageSteps = new ChildWindowsPageSteps(this.driver, test);
+            this.childWindowsPage = new ChildWindowsPage(this.driver);
             this.telephonyWindowPage = new TelephonyWindowPage(this.driver);
             this.test = test;
         }
@@ -366,7 +372,7 @@ namespace CareScriptTestAutomation.Src.StatusPanel
             {
                 this.transactionWindowPage.getTriageGridTimeHeader().Click();
 
-                this.commons.dragElementTo(this.transactionWindowPage.getTriageGridScrollBar(), 0, 80);
+                ////this.commons.dragElementTo(this.transactionWindowPage.getTriageGridScrollBar(), 0, 80);
 
                 this.transactionWindowPage.getTriageLastRow().Click();
                 this.test.Pass("Successfully clicked the last row");
@@ -427,14 +433,72 @@ namespace CareScriptTestAutomation.Src.StatusPanel
             {
 
                 var data = this.commons.GetJsonData<Request>(dataObjectPath);
-                this.transactionWindowPage.getChiefComplaintTxtBox().Click();
+                this.transactionWindowPage.getChiefComplaintTxtBox().Clear();
                 this.transactionWindowPage.getChiefComplaintTxtBox().SendKeys(data.PresentingProblem);
                 this.test.Pass("Successfully entered Chief Complaint");
+
             }
             catch (Exception ex)
             {
                 this.test.Fail("Error with : " + ex.ToString());
             }
+        }
+
+        public void enterBleedingSearchAndGo()
+        {
+            try
+            {
+
+                var data = this.commons.GetJsonData<Request>(dataObjectPath);
+                this.transactionWindowPage.getSearchBar().Click();
+                this.transactionWindowPage.getSearchBar().Clear();
+                this.transactionWindowPage.getSearchBar().SendKeys(data.Bleeding);
+                this.transactionWindowPage.getTriageSearchBtn().Click();
+                this.transactionWindowPage.itemGoBtn().Click();
+                this.test.Pass("Successfully gone through search");
+
+            }
+            catch (Exception ex)
+            {
+                this.test.Fail("Error with : " + ex.ToString());
+            }
+        }
+
+        public void enterAssessmentValue()
+        {
+            try
+            {
+
+                var data = this.commons.GetJsonData<Request>(dataObjectPath);
+                this.transactionWindowPage.getAssessmentPanelBox1().Clear();
+                this.transactionWindowPage.getAssessmentPanelBox1().SendKeys(data.Assessment1);
+                this.transactionWindowPage.getAssessmentPanelBox2().Clear();
+                this.transactionWindowPage.getAssessmentPanelBox2().SendKeys(data.Assessment2);
+
+                this.test.Pass("Successfully entered assessment");
+
+            }
+            catch (Exception ex)
+            {
+                this.test.Fail("Error with : " + ex.ToString());
+            }
+
+        }
+
+        public void clickTriageGoBtn()
+        {
+            try
+            {
+
+                this.transactionWindowPage.getTriageGoBtn().Click();
+                this.test.Pass("Successfully clicked Triage GO");
+
+            }
+            catch (Exception ex)
+            {
+                this.test.Fail("Error with : " + ex.ToString());
+            }
+
         }
 
         public void fillServiceReferralForm()
@@ -464,5 +528,79 @@ namespace CareScriptTestAutomation.Src.StatusPanel
             }
 
         }
+
+        public void fillNewBabyForm()
+        {
+            try
+            {
+
+                var data = this.commons.GetJsonData<Request>(dataObjectPath);
+
+                this.transactionWindowPage.getMotherTxtBox().SendKeys(data.Mother);
+                this.transactionWindowPage.getNewBornTxtBox().SendKeys(data.Newborn);
+                this.transactionWindowPage.getProviderCmbBox().SendKeys(data.ProviderNewBaby);
+                this.transactionWindowPage.getCallbackNewBaby().SendKeys(data.CallbackNoNewBaby);
+
+                this.transactionWindowPage.getBabyHealthOpt().Click();
+                this.transactionWindowPage.getBabyGenderOpt().Click();
+                this.transactionWindowPage.getBabyFeedingOpt().Click();
+
+                this.transactionWindowPage.getHospitalCmbBox().SendKeys(data.Hospital);
+                this.transactionWindowPage.getConditionTxtBox().SendKeys(data.Condition);
+                this.transactionWindowPage.getRmWardTxtBox().SendKeys(data.RmWard);
+                this.transactionWindowPage.getDateTxtBox().SendKeys(data.Date);
+                this.transactionWindowPage.getTimeTxtBox().SendKeys(data.Time);
+
+                this.transactionWindowPage.getWeightTxtBox().SendKeys(data.Weight);
+                this.transactionWindowPage.getWeightUnitOpt().Click();
+
+                this.transactionWindowPage.getCommentTxtBox().SendKeys(data.Comment);
+
+                this.transactionWindowPage.getEndNewBabyBtn().Click();
+                this.transactionWindowPage.getOverrideBtn().Click();
+
+                this.transactionWindowPage.getNewBabyProvider().SendKeys(data.ProviderNewBaby2);
+
+                this.transactionWindowPage.getEndNewBabyBtn().Click();
+                this.commons.clickYes();
+
+                this.test.Pass("Successfully entered New Baby data");
+            }
+            catch (Exception ex)
+            {
+                this.test.Fail("Error with : " + ex.ToString());
+            }
+
+        }
+
+        public void verifyAddedNewBabyReport()
+        {
+            try
+            {
+
+                this.clickSentByAgent();
+                string expected = "New Baby Report";
+                string actual = this.transactionWindowPage.getFirstBabyRecord().Text;
+                var result = this.commons.assertEqualString(expected, actual.Trim());
+
+                try
+                {
+                    Assert.True(result);
+                    this.test.Pass("Data is verified existent in the records");
+               
+                }
+                catch (Exception ex)
+                {
+                    this.test.Fail("Data is not existing in the records");
+                }
+                this.transactionWindowPage.getReturnBtn().Click();
+
+            }
+            catch (Exception ex)
+            {
+                this.test.Fail("Error with : " + ex.ToString());
+            }
+        }
+  
     }
 }

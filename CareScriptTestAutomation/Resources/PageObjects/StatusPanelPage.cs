@@ -28,7 +28,7 @@ namespace CareScriptTestAutomation.Resources.PageObjects
 
         public WindowsElement getLogOut()
         {
-            return driver.FindElementByXPath("//ListItem[14]");
+            return driver.FindElementByXPath("//ListItem[13]");
         }
 
         public WindowsElement getFacilityCmbBox()
@@ -53,6 +53,11 @@ namespace CareScriptTestAutomation.Resources.PageObjects
         public WindowsElement getGeneralMessage()
         {
             return driver.FindElementByName("G-General Message               ");
+        }        
+        
+        public WindowsElement getNewBabyReport()
+        {
+            return driver.FindElementByName("N-New Baby Report               ");
         }
 
         public WindowsElement getTypePhysicianReferral()

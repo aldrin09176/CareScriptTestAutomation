@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 
 namespace CareScriptTestAutomation.Resources.PageObjects
 {
@@ -272,8 +273,9 @@ namespace CareScriptTestAutomation.Resources.PageObjects
 
         public WindowsElement getChiefComplaintTxtBox()
         {
-            return driver.FindElementByXPath("//Pane[@Name='Untitled']/Table[2]/DataItem[1]/Edit");
+            return driver.FindElementsByXPath("//Pane[@Name='Untitled']/Table/DataItem/Edit")[1];
         }
+
 
         public WindowsElement getFirstRowServiceReferral()
         {
@@ -298,6 +300,110 @@ namespace CareScriptTestAutomation.Resources.PageObjects
         public WindowsElement getEndServiceReferralBtn() 
         {
             return driver.FindElementByAccessibilityId("cmdDoneSearch");
+        }
+
+        public WindowsElement getSearchBar()
+        {
+            return driver.FindElementsByXPath("//Pane[@Name='Untitled']/Table/DataItem/Edit")[2];
+        }
+        public WindowsElement getTriageWebSearchBtn()
+        {
+            return driver.FindElementByName("Search");
+        }
+
+        public WindowsElement itemGoBtn()
+        {
+            return driver.FindElementByXPath("//DataItem[@Name='click to select this guideline for Assessment and Triage']");
+        }
+        public WindowsElement getAssessmentPanelBox1()
+        {
+            return driver.FindElementsByXPath("//Pane[@Name='Assessment page']/Table/DataItem/Edit")[0];
+        }
+        public WindowsElement getAssessmentPanelBox2()
+        {
+            return driver.FindElementsByXPath("//Pane[@Name='Assessment page']/Table/DataItem/Edit")[1];
+        }
+        public WindowsElement getTriageGoBtn()
+        {
+            return driver.FindElementByXPath("//Pane[@Name='Triage']/Table/DataItem/Hyperlink/Image");
+        }
+        public WindowsElement getMotherTxtBox()
+        {
+            return driver.FindElementByAccessibilityId("txtPatientFirst");
+        }        
+        
+        public WindowsElement getNewBornTxtBox()
+        {
+            return driver.FindElementByAccessibilityId("txtNewBornName");
+        }
+        public WindowsElement getProviderTxtBox()
+        {
+            return driver.FindElementByAccessibilityId("dcbProvider");
+        }
+        public WindowsElement getCallbackNewBaby()
+        {
+            return driver.FindElementByAccessibilityId("mskCallBackPhone");
+        }
+        public WindowsElement getBabyHealthOpt()
+        {
+            return driver.FindElementByAccessibilityId("optHealthy");
+        }
+        public WindowsElement getBabyGenderOpt()
+        {
+            return driver.FindElementByAccessibilityId("optMale");
+        }
+        public WindowsElement getBabyFeedingOpt()
+        {
+            return driver.FindElementByAccessibilityId("optBottle");
+        }
+        public WindowsElement getHospitalCmbBox()
+        {
+            return driver.FindElementByAccessibilityId("dcbHospital");
+        }
+        public WindowsElement getConditionTxtBox()
+        {
+            return driver.FindElementByAccessibilityId("txtCondition");
+        }
+        public WindowsElement getRmWardTxtBox()
+        {
+            return driver.FindElementByAccessibilityId("txtRoomWard");
+        }
+        public WindowsElement getDateTxtBox()
+        {
+            return driver.FindElementByAccessibilityId("mskBornDate");
+        }
+        public WindowsElement getTimeTxtBox()
+        {
+            return driver.FindElementByAccessibilityId("mskBornTime");
+        }
+        public WindowsElement getWeightTxtBox()
+        {
+            return driver.FindElementByAccessibilityId("txtBabyPounds");
+        }
+        public WindowsElement getWeightUnitOpt()
+        {
+            return driver.FindElementByAccessibilityId("optPds");
+        }
+        public WindowsElement getCommentTxtBox()
+        {
+            return driver.FindElementByAccessibilityId("txtComment");
+        }
+        public WindowsElement getEndNewBabyBtn()
+        {
+            return driver.FindElementByAccessibilityId("btEnd");
+        }
+        public WindowsElement getNewBabyProvider() 
+        {
+            return driver.FindElementByAccessibilityId("dcbProvider");
+        }
+
+        public WindowsElement getNewBabySend()
+        {
+            return driver.FindElementByAccessibilityId("btEnd");
+        }
+        public WindowsElement getFirstBabyRecord()
+        {
+            return driver.FindElementByName("Trans Row 0, Not sorted.");
         }
     }
 }

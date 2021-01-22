@@ -18,15 +18,13 @@ namespace CareScriptTestAutomation.Tests
     [Collection("Sequential")]
     public class TriageWorkflowTest : Src.Init
     {
-        ReportsHelper reportsHelper { get; set; }
         ExtentTest test { get; set; }
         [Fact]
         public void asMSR()
         {
             var testName = "Triage Workflow as MSR";
-            reportsHelper = new ReportsHelper(testName);
-            test = reportsHelper.extent.CreateTest(testName);
-            this.extent = reportsHelper.extent;
+            test = ReportsHelper.extent.CreateTest(testName);
+            this.extent = ReportsHelper.extent;
 
             LoginPageSteps loginPageSteps = new LoginPageSteps(driver, test);
             StatusPanelPageSteps statusPanelPageSteps = new StatusPanelPageSteps(driver, test);
@@ -52,12 +50,11 @@ namespace CareScriptTestAutomation.Tests
             statusPanelPageSteps.logOut();
         }
         [Fact]
-        public void asNurse() 
+        public void asNurse()
         {
             var testName = "Triage Workflow as MSR";
-            reportsHelper = new ReportsHelper(testName);
-            test = reportsHelper.extent.CreateTest(testName);
-            this.extent = reportsHelper.extent;
+            test = ReportsHelper.extent.CreateTest(testName);
+            this.extent = ReportsHelper.extent;
 
             LoginPageSteps loginPageSteps = new LoginPageSteps(driver, test);
             StatusPanelPageSteps statusPanelPageSteps = new StatusPanelPageSteps(driver, test);
@@ -75,6 +72,9 @@ namespace CareScriptTestAutomation.Tests
             transactionWindowPageSteps.clickStartTriage();
             transactionWindowPageSteps.clickComplaintGuidelines();
             transactionWindowPageSteps.enterChiefComplaint();
+            transactionWindowPageSteps.enterBleedingSearchAndGo();
+            transactionWindowPageSteps.enterAssessmentValue();
+            transactionWindowPageSteps.clickTriageGoBtn();
         }
     }
 }

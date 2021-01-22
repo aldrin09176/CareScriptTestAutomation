@@ -387,8 +387,8 @@ C:\Users\acs0310\test-automation\CareScriptTestAutomation\CareScriptTestAutomati
 C:\Users\acs0310\test-automation\CareScriptTestAutomation\CareScriptTestAutomation\bin\Debug\xunit.assert.xml
 C:\Users\acs0310\test-automation\CareScriptTestAutomation\CareScriptTestAutomation\bin\Debug\xunit.core.xml
 C:\Users\acs0310\test-automation\CareScriptTestAutomation\CareScriptTestAutomation\bin\Debug\xunit.execution.desktop.xml
-C:\Users\acs0310\test-automation\CareScriptTestAutomation\CareScriptTestAutomation\obj\Debug\CareScriptTestAutomation.csprojAssemblyReference.cache
 C:\Users\acs0310\test-automation\CareScriptTestAutomation\CareScriptTestAutomation\obj\Debug\CareScriptTestAutomation.csproj.CoreCompileInputs.cache
 C:\Users\acs0310\test-automation\CareScriptTestAutomation\CareScriptTestAutomation\obj\Debug\CareScriptTestAutomation.csproj.CopyComplete
 C:\Users\acs0310\test-automation\CareScriptTestAutomation\CareScriptTestAutomation\obj\Debug\CareScriptTestAutomation.dll
 C:\Users\acs0310\test-automation\CareScriptTestAutomation\CareScriptTestAutomation\obj\Debug\CareScriptTestAutomation.pdb
+C:\Users\acs0310\test-automation\CareScriptTestAutomation\CareScriptTestAutomation\obj\Debug\CareScriptTestAutomation.csprojAssemblyReference.cache

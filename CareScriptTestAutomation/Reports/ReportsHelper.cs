@@ -11,36 +11,36 @@ using Xunit;
 
 namespace CareScriptTestAutomation.Reports
 {
-    public class ReportsHelper
+    public static class ReportsHelper
     {
-        public ExtentReports extent { get; set; }
-        public ExtentHtmlReporter reporter { get; set; }
-        public ExtentTest test { get; set; }
+        public static ExtentReports extent { get; set; }
+        public static ExtentHtmlReporter reporter { get; set; }
+        public static ExtentTest test { get; set; }
 
-        public DateTime currentTime;
+        public static DateTime currentTime;
+        public static String testName {get;set;}
 
-        [Fact]
-        public void createExtentHtml() 
+        public static void createExtentHtml() 
         {
             var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
             var appendTime = DateTime.Now.ToString("yyyy'-'MM'-'dd'T'H'.'mm'.'ss");
             MessageBox.Show(dir + "\\TestExecutionReports" + "\\" + Path.Combine("GeneralInfo", appendTime) + ".html");
             
         }
-        public ReportsHelper(string testName) 
+        static ReportsHelper() 
         {
 
             DateTime timeStamp = DateTime.Now;
             string timeNow = timeStamp.ToString("yyyyMMddHHmmss");
 
-            this.extent =  new ExtentReports();
+            extent =  new ExtentReports();
             var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
             DirectoryInfo di = Directory.CreateDirectory(dir + "\\TestExecutionReports\\" +
                 "");
             var htmlReporter = new ExtentHtmlReporter(dir + "\\TestExecutionReports" + "\\" + testName + " " + timeNow + ".html");
-            this.extent.AddSystemInfo("Environment", "Carescript Test Automation");
-            this.extent.AddSystemInfo("User Name", "Aldrin Sy");
-            this.extent.AttachReporter(htmlReporter);
+            extent.AddSystemInfo("Environment", "Carescript Test Automation");
+            extent.AddSystemInfo("User Name", "Aldrin Sy");
+            extent.AttachReporter(htmlReporter);
             htmlReporter.LoadConfig(dir + "\\extent-config.xml");
             
         }
