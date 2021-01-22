@@ -95,5 +95,14 @@ namespace CareScriptTestAutomation.Resources.PageObjects
         {
             return driver.FindElementByName("Trans Type Row 0, Not sorted.").Text;
         }
+
+        public WindowsElement getFirstRowNewBaby()
+        {
+            return driver.FindElementByName("Row 0");
+        }
+        public WindowsElement getNewBabyOverrideReason() 
+        {
+            return driver.FindElementByAccessibilityId("dcbOverRideReason");
+        }
     }
 }

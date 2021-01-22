@@ -18,14 +18,12 @@ namespace CareScriptTestAutomation.Tests
     [Collection("Sequential")]
     public class PhysicianReferral : Src.Init
     {
-        ReportsHelper reportsHelper { get; set; }
         ExtentTest test { get; set; }
         [Fact]
         public void assertAddedReferral()
         {
-            reportsHelper = new ReportsHelper("PhysicianReferral");
-            test = reportsHelper.extent.CreateTest("Physician Referral Test");
-            this.extent = reportsHelper.extent;
+            test = ReportsHelper.extent.CreateTest("Physician Referral Test");
+            this.extent = ReportsHelper.extent;
 
             LoginPageSteps loginPageSteps = new LoginPageSteps(driver, test);
             StatusPanelPageSteps statusPanelPageSteps = new StatusPanelPageSteps(driver, test);

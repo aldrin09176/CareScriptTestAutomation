@@ -18,14 +18,12 @@ namespace CareScriptTestAutomation.Tests
     [Collection("Sequential")]
     public class GeneralMessageTest : Src.Init
     {
-        ReportsHelper reportsHelper { get; set; }
         ExtentTest test { get; set; }
         [Fact]
         public void assertAddedNewMessage()
         {
-            reportsHelper = new ReportsHelper("GeneralMessage");
-            test = reportsHelper.extent.CreateTest("General Message Test");
-            this.extent = reportsHelper.extent;
+            test = ReportsHelper.extent.CreateTest("General Message Test");
+            this.extent = ReportsHelper.extent;
 
             LoginPageSteps loginPageSteps = new LoginPageSteps(driver, test);
             StatusPanelPageSteps statusPanelPageSteps = new StatusPanelPageSteps(driver, test);

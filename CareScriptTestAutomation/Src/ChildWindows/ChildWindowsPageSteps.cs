@@ -59,6 +59,38 @@ namespace CareScriptTestAutomation.Src.ChildWindows
             }
             
         }
+        public void switchToOtherWindow()
+        {
+            try
+            {
+
+                var current = this.childWindowsPage.getCurrentWindowHandle();
+                var allWindowHandles = this.childWindowsPage.getWindowHandles();
+                childWindowsPage.switchTo(allWindowHandles, 0);
+                this.test.Pass("Successfully switched to other window");
+
+            }
+            catch (Exception ex)
+            {
+                this.test.Fail("Error with : " + ex.ToString());
+            }
+        }
+        public void populateNewBabyOverrideReason()
+        {
+            try
+            {
+                var data = this.commons.GetJsonData<Agent>(dataObjectPath);
+                this.switchToOtherWindow();
+                this.childWindowsPage.getNewBabyOverrideReason().SendKeys(data.OverrideReason);
+                this.childWindowsPage.getReturnBtn().Click();
+                this.test.Pass("Successfully filled New Baby Override Reason");
+
+            }
+            catch (Exception ex)
+            {
+                this.test.Fail("Error with : " + ex.ToString());
+            }
+        }
 
         public void typeAgentandReturn()
         {
@@ -101,8 +133,6 @@ namespace CareScriptTestAutomation.Src.ChildWindows
             { }
 
             this.clickServiceReferralUpperGridLastRow();
-
-            //MessageBox.Show(this.childWindowsPage.getLowerGridRowCount().ToString());
 
             var actual = this.childWindowsPage.getLowerGridLastRowText().Trim();
             var result = this.commons.assertEqualString(expected, actual);

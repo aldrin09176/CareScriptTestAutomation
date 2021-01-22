@@ -119,6 +119,19 @@ namespace CareScriptTestAutomation.Src.StatusPanel
 
         }
 
+        public void selectNewBabyReport()
+        {
+            try
+            {
+                this.statusPanelPage.getNewBabyReport().SendKeys(Keys.Enter);
+                this.test.Pass("Successfully selected New Baby Report");
+            }
+            catch (Exception ex)
+            {
+                this.test.Fail("Error with : " + ex.ToString());
+            }
+        }
+
         public void selectCategoryServices()
         {
             try
@@ -158,7 +171,6 @@ namespace CareScriptTestAutomation.Src.StatusPanel
             {
                 this.test.Fail("Error with : " + ex.ToString());
             }
-
         }
         public void selectTypeServiceReferral()
         {

@@ -30,5 +30,20 @@ namespace CareScriptTestAutomation.Src.TransactionWindow.DataObjects
         public string Source { get; set; }
         public string ServiceReferralReason { get; set; }
         public string ServiceReferalAgentNote { get; set; }
+        public string Bleeding { get; set; }
+        public string Assessment1 { get; set; }
+        public string Assessment2{ get; set; }
+        public string Mother{ get; set; }
+        public string Newborn { get; set; }
+        public string ProviderNewBaby { get; set; }
+        public string CallbackNoNewBaby { get; set; }
+        public string Hospital { get; set; }
+        public string Condition { get; set; }
+        public string RmWard { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
+        public string Weight { get; set; }
+        public string Comment { get; set; }
+        public string ProviderNewBaby2 { get; set; }
     }
 }

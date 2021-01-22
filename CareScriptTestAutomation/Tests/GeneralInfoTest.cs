@@ -22,16 +22,14 @@ namespace CareScriptTestAutomation.Test
 {
     [Collection("Sequential")]
     public class GeneralInfoTest : Src.Init
-    {
-        ReportsHelper reportsHelper { get; set; }
+    { 
         ExtentTest test { get; set; }
-  
+
         [Fact]
-        public void asserAddedNewInfo()
+        public void asserAddedNewInfo() 
         {
-            reportsHelper = new ReportsHelper("GeneralInfo");
-            test = reportsHelper.extent.CreateTest("General Info Test");
-            this.extent = reportsHelper.extent;
+            test = ReportsHelper.extent.CreateTest("General Info Test");
+            this.extent = ReportsHelper.extent;
 
             LoginPageSteps loginPageSteps = new LoginPageSteps(driver, test);
             StatusPanelPageSteps statusPanelPageSteps = new StatusPanelPageSteps(driver, test);
